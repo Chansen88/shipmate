@@ -1,0 +1,22 @@
+<!doctype html>
+<html ng-app="shipmateapp">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+    <link rel=StyleSheet href="/css/style.css" type="text/css" media=screen>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-route.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://apis.google.com/js/api:client.js"></script>
+    <script src="/app/app.js"></script>
+    <script src="/app/controllers/controllers.js"></script>
+    <script src="/app/controllers/packages.js"></script>
+    <script src="/app/services/packages.js"></script>
+    <script src="/app/services/googleauth.js"></script>
+    <script src="/app/directive/packagedelivery.js"></script>
+    <script src="/app/directive/packageprogress.js"></script>
+  </head>
+  <body>
+    <ng-view>
+  </body>
+</html>

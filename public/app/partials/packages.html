@@ -1,0 +1,34 @@
+<div class="login-header">
+  <img ng-click="vm.gmailauth()" ng-src="/img/gmailgicon.png" id="refresh"/>
+  <img ng-click="vm.refresh()" ng-src="{{vm.requestStatus[0]}}" id="refresh"/>
+</div>
+<div class="package-container">
+  <div class="package-table">
+    <div ng-repeat="packagedata in vm.packageinfo | orderBy: ['-delivered', '-eta'] track by $index" ng-click="showProgess = !!!showProgess" class="{{'package-row' + $index % 2}}">
+      <div>
+        <div class="package-status">
+          <package-delivery package-data="packagedata"></package-delivery>
+        </div>
+        <div class="package-info">
+          <h5>{{packagedata.from}}</h5>
+          <h5>&#32 Location: {{packagedata.currentLocation}}</h6>
+          <h6>
+            &#32 From: {{packagedata.shippingFrom}}
+          </h6>
+          <h6 ng-if="packagedata.shippingTo">
+            &#32 Destination: {{packagedata.shippingTo}}
+          </h6>
+        </div>
+        <div class="package-service">
+          <img ng-if="packagedata.service === 'UPS'" ng-src="/img/ups.png" class="ups-img"/>
+          <img ng-if="packagedata.service === 'USPS'" ng-src="/img/usps.png" class="usps-img"/>
+          <img ng-if="packagedata.service === 'FEDEX'" ng-src="/img/fedex.png" class="fedex-img"/>
+          </a>
+        </div>
+      </div>
+      <div>
+        <package-progress package-data="packagedata" ng-show="showProgess" ng-click="vm.openPackageUrl(packagedata.id, packagedata.service)"></package-progress>
+      </div>
+    </div>
+  </div>
+</div>

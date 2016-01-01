@@ -1,0 +1,158 @@
+#customBtn {
+  display: inline-block;
+  background: #4285f4;
+  color: white;
+  width: 190px;
+  border-radius: 5px;
+  white-space: nowrap;
+}
+
+#customBtn:hover {
+  cursor: pointer;
+}
+
+span.label {
+  font-weight: bold;
+}
+
+span.icon {
+  background: url('/img/gmailIcon.png') no-repeat;
+  display: inline-block;
+  vertical-align: middle;
+  width: 42px;
+  height: 42px;
+  border-right: #2265d4 1px solid;
+}
+span.buttonText {
+  display: inline-block;
+  vertical-align: middle;
+  padding-left: 42px;
+  padding-right: 42px;
+  font-size: 14px;
+  font-weight: bold;
+  /* Use the Roboto font that is loaded in the <head> */
+  font-family: 'Roboto', sans-serif;
+}
+
+.login-header {
+  background: url('/img/shipmateLOGO.png') no-repeat center;
+  background-color: #EDEDED;
+  border-bottom: #d6d6d6 solid 1px;
+  width: 100%;
+  height: 23px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-content: center;
+}
+
+#refresh {
+  height: 23px;
+  width: 23px;
+}
+
+#refresh:hover {
+  cursor: pointer;
+}
+
+.login-container {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.package-row0:hover, .package-row1:hover {
+  cursor: pointer;
+}
+
+.package-row0 {
+  background-color: #F5F5F5;
+}
+
+.package-container {
+  margin-top: 35px;
+  display: flex;
+  justify-content: center;
+}
+
+.package-status, .package-service, .package-info {
+  display: inline-block;
+}
+
+.package-status {
+  text-align: center;
+  width: 60px;
+}
+
+.package-info {
+  width: 250px;
+}
+
+.package-service {
+  text-align: center;
+  width: 60px;
+}
+
+.progress-table-UPS {
+  margin: 0px 5px;
+  border-spacing: 0;
+  border: #4E2709 solid 1px;
+  font-size: .83em;
+}
+
+.progress-table-USPS {
+  margin: 5px;
+  border-spacing: 0;
+  border: #104D82 solid 1px;
+  font-size: .83em
+}
+
+.progress-table-FEDEX {
+  margin: 5px;
+  border-spacing: 0;
+  border: #403D90 solid 1px;
+  font-size: .83em
+}
+
+.progress-date {
+  text-align: center;
+  width: 55px;
+}
+
+.progress-info {
+  width: 205px;
+}
+
+.progress-location {
+  text-align: center;
+  width: 100px;
+}
+
+.header-UPS {
+  color: white;
+  background-color: #4E2709;
+}
+
+.header-USPS {
+  color: white;
+  background-color: #104D82;
+}
+
+.header-FEDEX {
+  color: white;
+  background-color: #403D90;
+}
+
+.progress-row0 {
+  background-color: #F5F5F5;
+}
+
+.progress-row1 {
+  background-color: white;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 2px 0px;
+}
