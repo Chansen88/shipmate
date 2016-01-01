@@ -3,7 +3,7 @@ const https = require('https');
 const cheerio = require('cheerio');
 const shipit = require('shipit');
 const moment = require('moment');
-const config = require('../env.json')[process.env.NODE_ENV || 'development'];
+const config = require('../env.json')[process.env.NODE_ENV || 'production'];
 
 const ups = new shipit.UpsClient({
   licenseNumber: config.UPS_LICENSE_NUMBER,
