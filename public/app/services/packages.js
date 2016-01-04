@@ -22,6 +22,7 @@
           }
         }).then(function successCallback(response) {
           Packages.emailIds = response.data.messages;
+          console.log(response.data);
           Packages.scanEmails(accessToken);
         }, function errorCallback(response) {
           console.log('Request Error');
