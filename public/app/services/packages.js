@@ -23,7 +23,30 @@
         }).then(function successCallback(response) {
           Packages.emailIds = response.data.messages;
           console.log(response.data);
-          Packages.scanEmails(accessToken);
+          function fetchnext(pageToken){
+            $http({
+              method: 'GET',
+              url: 'https://www.googleapis.com/gmail/v1/users/me/messages?pageToken=' + pageToken,
+              headers: {
+                Authorization: 'Bearer ' + accessToken
+              }
+            }).then(function successCallback(response) {
+              console.log(response.data);
+              console.log('yes sir');
+              Packages.emailIds.push(response.data.messages)
+              Packages.scanEmails(accessToken);
+            }
+
+          }
+
+          if (response.data.nextPageToken) {
+            fetchnext(response.data.nextPageToken);
+          } else {
+            Packages.scanEmails(accessToken);
+          }
+          // for (let i = 0; i < 5; i++){
+          //
+          // }
         }, function errorCallback(response) {
           console.log('Request Error');
           console.log(response);;
