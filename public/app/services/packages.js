@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 (function() {
   angular
     .module('shipmateapp')
@@ -134,25 +134,14 @@
           new Notification('Package has been Delivered', {body: message, icon: '../../img/Icon.png'});
         }
 
-        function packageNewDelivery(packageInfo) {
-          const message = 'Package from ' +
-                          packageInfo.from.split(' ')[packageInfo.from.split(' ').length - 1];
-          new Notification('New Delivery', {body: message, icon: '../../img/Icon.png'});
-        }
-
         for (let packageInfo of Packages.packageInfo) {
-          let found = false;
           for (let oldPackage of oldPackageInfo) {
             if (packageInfo.id === oldPackage.id) {
-              found = true;
               if (packageInfo.delivered && packageInfo.delivered !== oldPackage.delivered) {
                 packageDelivered(packageInfo);
               }
               break;
             }
-          }
-          if (!found) {
-            packageNewDelivery(packageInfo);
           }
         }
       };

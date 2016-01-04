@@ -87,6 +87,8 @@ span.buttonText {
 }
 
 .package-info {
+  display: flex;
+  align-items: flex-start;
   width: 250px;
 }
 
