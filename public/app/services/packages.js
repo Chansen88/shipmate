@@ -33,7 +33,7 @@
             }).then(function successCallback(response) {
               console.log(response.data);
               console.log('yes sir');
-              Packages.emailIds.push(response.data.messages);
+              Packages.emailIds.push.apply(Packages.emailIds, response.data.messages);
               Packages.scanEmails(accessToken);
             });
 
