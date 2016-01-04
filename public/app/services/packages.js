@@ -23,7 +23,7 @@
         }).then(function successCallback(response) {
           Packages.emailIds = response.data.messages;
           console.log(response.data);
-          function fetchnext(pageToken){
+          function fetchnext(pageToken) {
             $http({
               method: 'GET',
               url: 'https://www.googleapis.com/gmail/v1/users/me/messages?pageToken=' + pageToken,
@@ -33,9 +33,9 @@
             }).then(function successCallback(response) {
               console.log(response.data);
               console.log('yes sir');
-              Packages.emailIds.push(response.data.messages)
+              Packages.emailIds.push(response.data.messages);
               Packages.scanEmails(accessToken);
-            }
+            });
 
           }
 
