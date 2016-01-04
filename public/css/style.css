@@ -87,6 +87,7 @@ span.buttonText {
 }
 
 .package-info {
+  vertical-align: top;
   width: 250px;
 }
 
