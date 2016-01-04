@@ -71,6 +71,14 @@ span.buttonText {
   background-color: #F5F5F5;
 }
 
+.package-row0:hover {
+  background-color: #8a8393;
+}
+
+.package-row1:hover {
+  background-color: #8a8393;
+}
+
 .package-container {
   margin-top: 35px;
   display: flex;
