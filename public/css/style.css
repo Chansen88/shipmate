@@ -104,7 +104,7 @@ span.buttonText {
 }
 
 .progress-table-UPS:hover {
-  border: #D7B740 solid 2px;
+  border: #D7B740 solid 1px;
 }
 
 .progress-table-USPS {
@@ -115,7 +115,7 @@ span.buttonText {
 }
 
 .progress-table-USPS:hover {
-  border: #a23339 solid 2px;
+  border: #a23339 solid 1px;
 }
 
 .progress-table-FEDEX {
@@ -126,7 +126,7 @@ span.buttonText {
 }
 
 .progress-table-FEDEX:hover {
-  border: #EA6214 solid 2px;
+  border: #EA6214 solid 1px;
 }
 
 .progress-date {
