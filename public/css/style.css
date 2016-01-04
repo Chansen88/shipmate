@@ -71,14 +71,6 @@ span.buttonText {
   background-color: #F5F5F5;
 }
 
-.package-row0:hover {
-  background-color: #8a8393;
-}
-
-.package-row1:hover {
-  background-color: #8a8393;
-}
-
 .package-container {
   margin-top: 35px;
   display: flex;
@@ -111,6 +103,10 @@ span.buttonText {
   font-size: .83em;
 }
 
+.progress-table-UPS:hover {
+  border: #D7B740 solid 2px;
+}
+
 .progress-table-USPS {
   margin: 5px;
   border-spacing: 0;
@@ -118,11 +114,19 @@ span.buttonText {
   font-size: .83em
 }
 
+.progress-table-USPS:hover {
+  border: #a23339 solid 2px;
+}
+
 .progress-table-FEDEX {
   margin: 5px;
   border-spacing: 0;
   border: #403D90 solid 1px;
   font-size: .83em
+}
+
+.progress-table-FEDEX:hover {
+  border: #EA6214 solid 2px;
 }
 
 .progress-date {
