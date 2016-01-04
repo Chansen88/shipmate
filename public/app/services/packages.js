@@ -54,7 +54,7 @@
       };
 
       Packages.scanEmails = function(accessToken) {
-
+        console.log(Packages.emailIds);
         let promises = Packages.emailIds.map(function(messageId) {
           return $http({
             method: 'GET',
