@@ -34,19 +34,21 @@
               console.log(response.data);
               console.log('yes sir');
               Packages.emailIds.push.apply(Packages.emailIds, response.data.messages);
-              Packages.scanEmails(accessToken);
+              if (count < 1 &&  response.data.nextPageToken) {
+                count++;
+                fetchnext(response.data.nextPageToken);
+              } else {
+                Packages.scanEmails(accessToken);
+              }
             });
 
           }
-
+          let count = 0;
           if (response.data.nextPageToken) {
             fetchnext(response.data.nextPageToken);
           } else {
             Packages.scanEmails(accessToken);
           }
-          // for (let i = 0; i < 5; i++){
-          //
-          // }
         }, function errorCallback(response) {
           console.log('Request Error');
           console.log(response);;
