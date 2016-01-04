@@ -22,7 +22,6 @@
           }
         }).then(function successCallback(response) {
           Packages.emailIds = response.data.messages;
-          console.log(response.data);
           function fetchnext(pageToken) {
             $http({
               method: 'GET',
@@ -31,8 +30,6 @@
                 Authorization: 'Bearer ' + accessToken
               }
             }).then(function successCallback(response) {
-              console.log(response.data);
-              console.log('yes sir');
               Packages.emailIds.push.apply(Packages.emailIds, response.data.messages);
               if (count < 1 &&  response.data.nextPageToken) {
                 count++;
@@ -157,13 +154,15 @@
           const message = 'Package from ' +
                           packageInfo.from.split(' ')[packageInfo.from.split(' ').length - 1] +
                           ' has been delivered.';
-          new Notification('Package has been Delivered', {body: message, icon: '../../img/Icon.png'});
+          new Notification('Package has been Delivered',
+                            {body: message, icon: '../../img/Icon.png'});
         }
 
         for (let packageInfo of Packages.packageInfo) {
           for (let oldPackage of oldPackageInfo) {
             if (packageInfo.id === oldPackage.id) {
-              if (packageInfo.delivered && packageInfo.delivered !== oldPackage.delivered) {
+              if (packageInfo.delivered &&
+                  packageInfo.delivered !== oldPackage.delivered) {
                 packageDelivered(packageInfo);
               }
               break;
