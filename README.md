@@ -5,4 +5,6 @@ A cross platform menu bar app that allows users to easily track shipped packages
 To download the application go to the repository below.
 [Menu Bar extension](https://github.com/Chansen88/shipmateelectron)
 
+![screenshot](https://github.com/Chansen88/shipmate/blob/master/screenshot.png)
+
 Feel free to fork this repository and improve the application.
