@@ -14,42 +14,36 @@
 
       Packages.getEmailList = function(accessToken) {
         Packages.requestStatus[0] = '/img/refresh.gif';
-        $http({
-          method: 'GET',
-          url: 'https://www.googleapis.com/gmail/v1/users/me/messages',
-          headers: {
-            Authorization: 'Bearer ' + accessToken
-          }
-        }).then(function successCallback(response) {
-          Packages.emailIds = response.data.messages;
-          function fetchnext(pageToken) {
-            $http({
-              method: 'GET',
-              url: 'https://www.googleapis.com/gmail/v1/users/me/messages?pageToken=' + pageToken,
-              headers: {
-                Authorization: 'Bearer ' + accessToken
-              }
-            }).then(function successCallback(response) {
-              Packages.emailIds.push.apply(Packages.emailIds, response.data.messages);
-              if (count < 1 &&  response.data.nextPageToken) {
-                count++;
-                fetchnext(response.data.nextPageToken);
-              } else {
-                Packages.scanEmails(accessToken);
-              }
-            });
+        let emailListFetchCount = 3;
 
+        function emailListFactory(pageToken) {
+          let pageTokenString = '';
+          if (pageToken !== undefined) {
+            pageTokenString = '?pageToken=' + pageToken;
           }
-          let count = 0;
-          if (response.data.nextPageToken) {
-            fetchnext(response.data.nextPageToken);
-          } else {
-            Packages.scanEmails(accessToken);
-          }
-        }, function errorCallback(response) {
-          console.log('Request Error');
-          console.log(response);;
-        });
+          return $http({
+            method: 'GET',
+            url: 'https://www.googleapis.com/gmail/v1/users/me/messages' + pageTokenString,
+            headers: {
+              Authorization: 'Bearer ' + accessToken
+            }
+          });
+        }
+
+        function emailListFetch(pageToken) {
+          let fetch = emailListFactory(pageToken);
+          emailListFetchCount--;
+          fetch.then(function successCallback(response) {
+            Packages.emailIds.push.apply(Packages.emailIds, response.data.messages);
+            if (emailListFetchCount > 0 && response.data.nextPageToken) {
+              emailListFetch(response.data.nextPageToken);
+            } else {
+              Packages.scanEmails(accessToken);
+            }
+          });
+        }
+
+        emailListFetch();
       };
 
       Packages.scanEmails = function(accessToken) {
